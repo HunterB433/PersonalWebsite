@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    background: #f3f3f3;
+    background-image: url("Pictures/WiiBackGround.png");
+}
+
+.page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-viewport{
+    flex: 1;
+    overflow: hidden;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+}
+
+
+.project-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);  /* actually 5 columns exist */
+    grid-template-rows: repeat(3, 1fr);
+    gap: 14px;
+
+    width: 80vw;
+    max-width: none;
+    height: min(60vh, 520px);
+    margin: 0 auto;
+}
+
+.tile{
+    background-image: url(Pictures/WiiBackGroundDarker4.png);
+    min-height: 120px;
+    border-radius: 20px;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 24px;
+    font-weight: 600px;
+
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    text-align: center;
+
+    user-select: none;
+
+    border: 2px solid rgb(83, 83, 83);
+
+}
+
+.tile :hover {
+    transform: scale(1.1);
+    border: 3px solid rgb(186, 186, 241);
+}
+
+.tile img{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+
+.bottom-bar{
+    height: 150px;
+    background: #7a7575;
+    flex-shrink: 0;
+}

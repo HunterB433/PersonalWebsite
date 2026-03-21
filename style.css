@@ -1,5 +1,9 @@
+body {
+    background-color: #7090ab;
+}
+
 .box{
-    background-color: cyan;
+    background-color: rgb(93, 119, 196);
     border-radius: 10px 10px 10px 10px;
     overflow: hidden;
 
@@ -19,6 +23,11 @@
     padding: 5%;
 }
 
+.box :hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+}
+
 .grid{
     min-height: 100%;
     display: flex;
@@ -33,7 +42,7 @@
 
 
 .box .links a {
-    color: #0077cc;
+    color: #021c2f;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
