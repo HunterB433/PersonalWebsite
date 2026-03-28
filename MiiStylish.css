@@ -1,10 +1,19 @@
+a {
+    cursor: url("WiiCursorData/wii-pointer-blue-ccw.cur"), auto;
+}
+
 * {
     box-sizing: border-box;
+}
+
+*:active {
+    cursor: url("WiiCursorData/wii-grab-ccw.cur"), grabbing;
 }
 
 html, body{
     margin: 0;
     height: 100%;
+    cursor: url("WiiCursorData/wii-open-ccw.cur"), auto;
 }
 
 body{
@@ -60,9 +69,15 @@ body{
 
 }
 
-.tile :hover {
+.tile img:hover {
     transform: scale(1.1);
     border: 3px solid rgb(186, 186, 241);
+}
+
+.tile a{
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .tile img{

@@ -8,7 +8,7 @@
   <main class="page">
     <section class="grid-viewport">
         <div class="project-grid">
-            <div class="tile"><img src="Pictures/Guika.png"></div>
+            <div class="tile"><a href="https://github.com/HunterB433/Guika" target="_blank"><img src="Pictures/Guika.png"></a></div>
             <div class="tile"><img src="Pictures/TGVTK.png"></div>
             <div class="tile"><img src="Pictures/Bisckit.png"></div>
             <div class="tile"><img src="Pictures/KOI.png"></div>
@@ -29,6 +29,31 @@
     </section>
 
     <footer class="bottom-bar"></footer>
+    <audio id="StartUp" src="Sfx/Start.wav" preload="auto"></audio>
+    <audio id="bgMusic" src="Sfx/Menu.mp3" loop preload="auto"></audio>
+    <audio id="Click" src="Sfx/Click.wav" preload="auto"></audio>
+
+    <script>
+      document.addEventListener("click", ()=> {
+        const start = document.getElementById("StartUp");
+        const music = document.getElementById("bgMusic");
+        const clicksfx = document.getElementById("Click");
+
+        start.play()
+
+        start.onended = () => {
+          music.play();
+        };
+      }, {once: true});
+
+      const clickSound = new Audio("Sfx/Click.wav");
+      clickSound.preload = "auto";
+
+      document.addEventListener("click", () =>{
+        const soundClone = clickSound.cloneNode();
+        soundClone.play();
+      });
+    </script>
   </main>
 
 </html>
