@@ -21,6 +21,20 @@ body{
     background-image: url("Pictures/WiiBackGround.png");
 }
 
+.bottom-bar{
+    height: 150px;
+    background: #7a7575;
+    flex-shrink: 0;
+
+    border: 3px solid rgb(186, 186, 241);
+    border-bottom: 0px;
+
+    display: flex;
+    align-items: center;     /* vertical */
+    justify-content: space-around; /* |--X--X--X--| */
+}
+
+
 .page{
     height: 100vh;
     display: flex;
@@ -35,7 +49,6 @@ body{
     align-items: center;
 }
 
-
 .project-grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);  /* actually 5 columns exist */
@@ -46,6 +59,26 @@ body{
     max-width: none;
     height: min(60vh, 520px);
     margin: 0 auto;
+}
+
+.clock-parent{
+    display: flex;
+    justify-content: center; /* Center Horizontally*/
+    align-items: center; /*Center vertically*/
+}
+
+#clock{
+    user-select: none;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 24px;
+    font-weight: bolder;
+
+    color: #7a7575;
+    -webkit-text-stroke: 1px white;
+
+    margin-bottom: 40px;
 }
 
 .tile{
@@ -92,4 +125,29 @@ body{
     height: 150px;
     background: #7a7575;
     flex-shrink: 0;
+
+    border: 3px solid rgb(186, 186, 241);
+    border-bottom: 0px;
+
+    display: flex;
+    align-items: center;     /* vertical */
+    justify-content: space-around; /* |--X--X--X--| */
 }
+
+#date{
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 24px;
+    font-weight: 600px;
+
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    text-align: center;
+
+    user-select: none;
+
+    padding: 5px;
+    border: 2px solid rgb(5, 5, 5);
+}
+

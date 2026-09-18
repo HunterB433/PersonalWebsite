@@ -7,6 +7,7 @@
 </head>
   <main class="page">
     <section class="grid-viewport">
+      <header></header>
         <div class="project-grid">
             <div class="tile"><a href="https://github.com/HunterB433/Guika" target="_blank"><img src="Gifs/Guika.gif"></a></div>
             <div class="tile"><a href="https://github.com/HunterB433/TheGuyTMvsTheKillerTM" target="_blank"><img src="Gifs/InkleStart.gif"></a></div>
@@ -25,14 +26,21 @@
             <div class="tile">TBD</div>
             <div class="tile">TBD</div>
             <div class="tile">TBD</div>
-        </div>
+        </div> 
     </section>
-
-    <footer class="bottom-bar"></footer>
+    <div class="clock-parent">
+      <div id="clock">99% Confidence Value Clock -> 99:99 PM</div>
+    </div>
+    <footer class="bottom-bar">
+      <div> Item 1 </div>
+      <div id="date"> 11/01/26 </div>
+      <div> Item 3 </div>
+    </footer>
     <audio id="StartUp" src="Sfx/Start.wav" preload="auto"></audio>
     <audio id="bgMusic" src="Sfx/Menu.mp3" loop preload="auto"></audio>
     <audio id="Click" src="Sfx/Click.wav" preload="auto"></audio>
 
+    <!-- Adding music and clicking sfx -->
     <script>
       document.addEventListener("click", ()=> {
         const start = document.getElementById("StartUp");
@@ -51,8 +59,33 @@
 
       document.addEventListener("click", () =>{
         const soundClone = clickSound.cloneNode();
+        soundClone.volume = .1;
         soundClone.play();
       });
+    </script>
+
+    <!-- Adding (and updating) clock */ -->
+    <script>
+
+      function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit'});
+      document.getElementById('clock').textContent = "95% Confidence Value Clock -> " + timeString;
+      }
+
+      updateClock()
+      setInterval(updateClock, 5000)
+
+      const now = new Date();
+      const options = {
+        weekday: 'short',
+        month: 'numeric',
+        day: 'numeric',
+        year: '2-digit'
+      };
+
+      const dateString = now.toLocaleDateString('en-US', options).replace(',','');
+      document.getElementById('date').textContent = dateString;
     </script>
   </main>
 
