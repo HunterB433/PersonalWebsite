@@ -6,8 +6,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
   <main class="page">
+      <header class="top-bar">
+        <span class="scrolling-text"> 
+        I've come to make an announcment
+
+Shadow the Hedgehog's a bitch ass motherfucker. He pissed on my fucking wife. That's right, he took his hedgehog fucking quilly dick out and he pissed on my fucking wife and he said his dick was "this big" and I said "that's disgusting".
+
+So I'm making a callout post on my twitter dot com: Shadow the Hedgehog, you got a small dick, its the size of this walnut except way smaller. And guess what? Here's what my dong looks like. That's right baby, all point, no quills, no pillows, look at that it looks like two balls and a bong.
+
+He fucked my wife so guess what? I'm gonna fuck the Earth. That's right this is what you get, MY SUPER LASER PISS. Except I'm not pissing on the Earth, I'm gonna go higher, I'M PISSING ON THE MOON. HOW DO YOU LIKE THAT OBAMA, I PISSED ON THE MOON YOU IDIOT!
+
+You have twenty-three hours before the pisss drop-el-ets hit the fucking Earth, now get out of my fucking sight, before I piss on you too.
+        </span>
+      </header>
     <section class="grid-viewport">
-      <header></header>
         <div class="project-grid">
             <div class="tile"><a href="https://github.com/HunterB433/Guika" target="_blank"><img src="Gifs/Guika.gif"></a></div>
             <div class="tile"><a href="https://github.com/HunterB433/TheGuyTMvsTheKillerTM" target="_blank"><img src="Gifs/InkleStart.gif"></a></div>
@@ -86,6 +98,48 @@
 
       const dateString = now.toLocaleDateString('en-US', options).replace(',','');
       document.getElementById('date').textContent = dateString;
+    </script>
+
+    <!-- Scroll speed and random select script-->
+    <script>
+      let messages = [];
+      const speedInPixelsPerSecond = 150;
+
+      async function loadMessages() {
+        const response = await fetch("TopScroll.txt");
+        const text = await response.text();
+        messages = text.split('\n').map(m => m.trim()).filter(m => m.length > 0);
+      }
+
+      function startNextScroll() {
+      const textElement = document.querySelector('.scrolling-text');
+
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+      textElement.textContent = randomMessage;
+
+      // Reset animation so browser registers this is a new animation
+      textElement.style.animation = 'none';
+      textElement.offsetHeight; // Trigger DOM reflow
+      
+      const duration = textElement.offsetWidth / speedInPixelsPerSecond;
+
+      textElement.style.animation = `marquee ${duration}s linear 1`;
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+          const textElement = document.querySelector('.scrolling-text');
+
+          if (textElement) {
+            textElement.addEventListener('animationend', () => {
+              // Fixed: Math.random() with parentheses
+              const pauseDelay = Math.floor(Math.random() * 1000) + 1000;
+              setTimeout(startNextScroll, pauseDelay);
+            });
+          }
+
+          loadMessages();
+        });
     </script>
   </main>
 
