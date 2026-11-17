@@ -1,5 +1,5 @@
 a {
-    cursor: url("WiiCursorData/wii-pointer-blue-ccw.cur"), auto;
+    cursor: url("WiiData/wii-pointer-blue-ccw.cur"), auto;
 }
 
 * {
@@ -7,33 +7,18 @@ a {
 }
 
 *:active {
-    cursor: url("WiiCursorData/wii-grab-ccw.cur"), grabbing;
+    cursor: url("WiiData/wii-grab-ccw.cur"), grabbing;
 }
 
 html, body{
     margin: 0;
     height: 100%;
-    cursor: url("WiiCursorData/wii-open-ccw.cur"), auto;
+    cursor: url("WiiData/wii-open-ccw.cur"), auto;
 }
 
 body{
     background: #f3f3f3;
-    background-image: url("Pictures/WiiBackGround.png");
 }
-
-.bottom-bar{
-    height: 150px;
-    background: #7a7575;
-    flex-shrink: 0;
-
-    border: 3px solid rgb(186, 186, 241);
-    border-bottom: 0px;
-
-    display: flex;
-    align-items: center;     /* vertical */
-    justify-content: space-around; /* |--X--X--X--| */
-}
-
 
 .page{
     height: 100vh;
@@ -82,7 +67,7 @@ body{
 }
 
 .tile{
-    background-image: url(Pictures/WiiBackGroundDarker4.png);
+    background-image: url(WiiData/WiiBackground.png);
     min-height: 120px;
     border-radius: 20px;
 
@@ -120,23 +105,82 @@ body{
     object-fit: cover;
 }
 
-
 .bottom-bar{
+    position: relative;
     height: 150px;
-    background: #7a7575;
     flex-shrink: 0;
-
-    border: 3px solid rgb(186, 186, 241);
-    border-bottom: 0px;
-
-    display: flex;
-    align-items: center;     /* vertical */
-    justify-content: space-around; /* |--X--X--X--| */
 }
+
+.bar-bg-wrap {
+    position: absolute;
+    inset: 0;
+    filter: drop-shadow(0 -3px 0 rgb(186, 186, 241));
+}
+
+.bar-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#bbbbbb, #dfe6ec);
+
+    /* Carves an ellipse out of the top-center, creating the dip */
+    -webkit-mask-image: radial-gradient(
+        ellipse 40% 60px at 50% 0,
+        transparent 98%,
+        #000 100%
+    );
+    mask-image: radial-gradient(
+        ellipse 55% 45px at 50% 0,
+        transparent 98%,
+        #000 100%
+    );
+}
+
+.bar-center{
+    position:absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 18px;
+
+    pointer-events: none;
+}
+
+.round-btn {
+    position: absolute;
+    top: 35px;
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: none;
+
+    cursor: inherit;
+    z-index: 2;
+}
+
+.round-btn img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.round-btn:hover {
+    transform: scale(1.08);
+}
+
+.about-mii  { left: 3vw; }
+.net-neighbors { right: 3vw; }
 
 .top-bar{
     height: 25px;
-    background-color: #7a7575;
+    background-color: #bbbbbb;
     flex-shrink: 0;
     overflow: hidden;
     white-space: nowrap;
